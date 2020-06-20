@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Animate CSS</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+
+   <style>
+      
+    
+   </style>
+</head>
+
+<body>
+   <div id="transition">
+
+      <transition 
+      name="first"
+      enter-active-class="animate__animated animate__bounce">
+
+         <h2 v-if='show'>Apple</h2>
+
+      </transition>
+
+      <hr>
+
+      <transition 
+      name="second"
+      enter-active-class="animate__animated animate__headShake">
+         <div v-if="show2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum dolore necessitatibus dolorem facere
+            laborum laboriosam voluptates repellendus cum eius quam. Aspernatur assumenda nihil asperiores consectetur
+            doloremque atque eaque possimus exercitationem?
+         </div>
+      </transition>
+
+      <button v-on:click="show2 = !show2">Clique Aqui</button>
+
+   </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   <script>
+      let app = new Vue({
+         el: '#transition',
+         data: {
+            show: true,
+            show2: false
+         }
+      })
+
+   </script>
+</body>
+
+</html>

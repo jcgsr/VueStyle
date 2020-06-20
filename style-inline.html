@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Style In-Line</title>
+</head>
+<body>
+   <div id="styles">
+      <h2 v-bind:style="{ fontSize: fontSizeProp + 'px' }">Steve Jobs</h2>
+
+      <input type="text" placeholder="Escolha o tamanho da fonte" v-model="fontSizeProp">
+
+      <hr>
+
+      <h2>Digite o valor de cada cor nos campos abaixo</h2>
+
+      <input type="text" placeholder="Vermelho" v-model="styleR">
+      <input type="text" placeholder="Verde" v-model="styleG">
+      <input type="text" placeholder="Azul" v-model="styleB">
+
+      <div v-bind:style="styleRGB">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam dicta assumenda mollitia error rem nulla velit magnam minus aliquam, asperiores odit, iste magni officiis ducimus placeat quaerat ex, illum ipsam!</div>
+   </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   <script>
+      let app = new Vue({
+         el: '#styles',
+         data: {
+            fontSizeProp: 20,
+            styleR: 255,
+            styleG: 105,
+            styleB: 80
+         },
+         computed: {
+            styleRGB() {
+               return {
+                  color: `rgb(${this.styleR}, ${this.styleG}, ${this.styleB})`
+               }
+               
+            }
+         }
+      })          
+      
+   </script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Transition CSS</title>
+
+   <style>
+      .first-enter-active {
+         transition: opacity 5s ease;
+      }
+
+      .first-leave-active {
+         transition: opacity 5s ease-out;
+      }
+
+      .first-enter,
+      .first-leave-to {
+         opacity: 0;
+      }
+
+      /* */
+      .second-enter-active {
+         transition: all .3s linear;
+      }
+
+      .second-leave-active {
+         transition: all .5s linear;
+      }
+
+      .second-enter,
+      .second-leave-to {
+         opacity: 0;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="transition">
+
+      <transition name="first">
+
+         <h2 v-if='show'>Apple</h2>
+
+      </transition>
+
+      <hr>
+
+      <transition name="second">
+         <div v-if="show2">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum dolore necessitatibus dolorem facere
+            laborum laboriosam voluptates repellendus cum eius quam. Aspernatur assumenda nihil asperiores consectetur
+            doloremque atque eaque possimus exercitationem?
+         </div>
+      </transition>
+
+      <button v-on:click="show2 = !show2">Clique Aqui</button>
+
+   </div>
+
+   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+   <script>
+      let app = new Vue({
+         el: '#transition',
+         data: {
+            show: true,
+            show2: false
+         }
+      })
+
+   </script>
+</body>
+
+</html>
